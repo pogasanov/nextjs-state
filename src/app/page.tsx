@@ -1,13 +1,7 @@
-import { HomePage } from '@/components/pages/home-page'
-import { initCounterStore } from "@/stores/counter-store";
-import { CounterStoreProvider } from "@/providers/counter-store-provider";
+import Link from "next/link";
 
-export default async function Home() {
-  const state = await initCounterStore()
-
+export default function Home() {
   return (
-    <CounterStoreProvider initialState={state}>
-      <HomePage />
-    </CounterStoreProvider>
+    <Link href="/dashboard">Go to dashboard</Link>
   )
 }
