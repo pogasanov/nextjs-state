@@ -2,9 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
-import { CounterStoreProvider } from '@/providers/counter-store-provider'
-import { initCounterStore } from "@/stores/counter-store";
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -17,13 +14,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const state = initCounterStore()
-
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <CounterStoreProvider initialState={state}>{children}</CounterStoreProvider>
-      </body>
+    <body className={inter.className}>
+    {children}
+    </body>
     </html>
   )
 }

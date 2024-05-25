@@ -11,7 +11,8 @@ export type CounterActions = {
 
 export type CounterStore = CounterState & CounterActions
 
-export const initCounterStore = (): CounterState => {
+export const initCounterStore = async (): Promise<CounterState> => {
+  await new Promise(resolve => setTimeout(resolve, 10000))
   return { count: new Date().getTime() }
 }
 
